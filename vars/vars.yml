@@ -1,0 +1,40 @@
+# IP you want to manage/access WG GUI from
+# You can visit https://ipchicken.com/ or https://ipquail.com/ if you don't know your current Public IP
+MGMT_IP: 0.0.0.0/0
+
+# Create session secret, I just use uuidgen and remove the -'s
+SESSION_SECRET: DMhDyJSDljadfwDj3r4o949423DKIWLDFSLDCVE49492LDLA
+
+# Set login and password for WG UI
+WGUI_USERNAME: admin
+WGUI_PASSWORD: admin
+
+# Can be server FQDN if public or IP if private, used for self-signed cert
+SERVER_FQDN: host.somedomain.com
+
+# Used for SSL self signed cert
+ORG_NAME: SomeBogusOrg
+
+# Port you want nginx for WG UI to listen on
+WGUI_PORT: 8443
+
+# If you want to get around hotel wi-fi filtering, set to 443
+WG_PORT: 443
+
+# Reference here for the latest https://github.com/ngoduykhanh/wireguard-ui/releases
+WGUI_DOWNLOAD: https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.5.2/
+WGUI_FILE: wireguard-ui-v0.5.2-linux-amd64.tar.gz
+WGUI_FILE_ARM64: wireguard-ui-v0.5.2-linux-arm64.tar.gz
+
+# IF you want to use the mail feature, uncomment here and in env.yml
+# I am not a fan of sending vpn client configs unencrypted, so I leave these blank
+# Reference https://github.com/ngoduykhanh/wireguard-ui#environment-variables
+EMAIL_FROM_ADDRESS:
+EMAIL_FROM_NAME:
+SENDGRID_API_KEY:
+SMTP_HOSTNAME:
+SMTP_PORT:
+SMTP_USERNAME:
+SMTP_PASSWORD:
+SMTP_AUTH_TYPE: NONE
+SMTP_ENCRYPTION: NONE
