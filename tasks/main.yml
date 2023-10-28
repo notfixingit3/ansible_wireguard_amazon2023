@@ -1,0 +1,19 @@
+---
+- name: Install Wireguard on Amazon Linux 2023
+  hosts: all
+  gather_facts: true
+# Tasks file for Wireguard on Amazon Linux 2023
+
+
+- import_playbook: subtasks/exit.yml
+  when: >
+    ansible_distribution not in ["Amazon"] and
+    ansible_distribution_version not in ["2023"]
+
+- import_playbook: subtasks/userspace-tools.yml
+  when: >
+    ansible_distribution in ["Amazon"] and
+    ansible_distribution_version in ["2023"]
+
+- import_playbook: subtasks/admin-gui.yml
+  when:
