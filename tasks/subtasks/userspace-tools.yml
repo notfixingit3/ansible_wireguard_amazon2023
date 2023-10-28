@@ -1,0 +1,10 @@
+---
+- name: Install Wireguard Userspace tools
+  hosts: all
+  vars_files:
+    - "../../vars/vars.yml"
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name:
