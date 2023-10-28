@@ -1,0 +1,5 @@
+[all:vars]
+#ansible_user=someusername
+
+[amazon]
+10.10.10.70 hostname=somehostname
