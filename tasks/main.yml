@@ -14,6 +14,3 @@
   when: >
     ansible_distribution in ["Amazon"] and
     ansible_distribution_version in ["2023"]
-
-- import_playbook: subtasks/admin-gui.yml
-  when:
