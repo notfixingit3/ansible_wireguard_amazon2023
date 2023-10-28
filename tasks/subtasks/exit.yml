@@ -1,0 +1,10 @@
+---
+- name: Check OS
+  hosts: all
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: OS Verification
+      ansible.builtin.fail:
+        msg: "I'm sorry, this host does not appear to be Amazon Linux 2023"
