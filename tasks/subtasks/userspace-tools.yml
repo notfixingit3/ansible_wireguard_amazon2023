@@ -20,10 +20,12 @@
         dest: /usr/src/wireguard-tools
 
     - name: Compile WireGuard-Tools
-      ansible.builtin.command: "make -C /usr/src/wireguard-tools/src -j$(nproc)"
+      ansible.builtin.shell:
+        cmd: 'make -C /usr/src/wireguard-tools/src -j$(nproc)'
 
     - name: Install WireGuard-Tools
-      ansible.builtin.command: "sudo make -C /usr/src/wireguard-tools/src install"
+      ansible.builtin.shell:
+        cmd: 'make -C /usr/src/wireguard-tools/src install'
 
     - name: Uninstall make tools
       ansible.builtin.dnf:
