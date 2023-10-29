@@ -1,5 +1,5 @@
 ---
-- name: Install Wireguard Userspace tools
+- name: Install WireGuard Userspace tools
   hosts: all
   vars_files:
     - "../../vars/vars.yml"
@@ -7,4 +7,36 @@
   gather_facts: true
 
   tasks:
-    - name:
+    - name: Install Make Tools
+      ansible.builtin.dnf:
+        name:
+          - gcc
+          - git
+          - make
+        update_cache: true
+        state: present
+
+    - name: Clone WireGuard-Tools
+      ansible.builtin.git:
+        repo: 'https://git.zx2c4.com/wireguard-tools'
+        dest: /usr/src/wireguard-tools
+
+    - name: Compile WireGuard-Tools
+      ansible.builtin.command: "make -C /usr/src/wireguard-tools/src -j$(nproc)"
+
+    - name: Install WireGuard-Tools
+      ansible.builtin.command: "sudo make -C /usr/src/wireguard-tools/src install"
+
+    - name: Uninstall make tools
+      ansible.builtin.dnf:
+        name:
+          - gcc
+          - git
+          - make
+        state: absent
+        autoremove: no
+
+    - name: Clean up
+      ansible.builtin.file:
+        path: /usr/src/wireguard-tools
+        state: absent

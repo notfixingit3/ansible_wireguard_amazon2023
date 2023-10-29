@@ -1,8 +1,8 @@
 ---
-- name: Install Wireguard on Amazon Linux 2023
+- name: Install WireGuard on Amazon Linux 2023
   hosts: all
   gather_facts: true
-# Tasks file for Wireguard on Amazon Linux 2023
+# Tasks file for WireGuard on Amazon Linux 2023
 
 
 - import_playbook: subtasks/exit.yml
