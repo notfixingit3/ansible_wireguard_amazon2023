@@ -1,4 +1,4 @@
-# Deploy Wireguard on Amazon Linux 2023
+# Deploy WireGuard on Amazon Linux 2023
 
 # Why?
 Amazon Linux 2023 comes with the kernel module  
